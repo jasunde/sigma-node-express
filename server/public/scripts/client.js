@@ -5,11 +5,10 @@ $(document).ready(function() {
     event.preventDefault();
     var newSong = {};
 
-    $.each($('#postSongForm').serializeArray(), function(i, field) {
+    var formArray = $(this).serializeArray();
+    $.each(formArray, function(i, field) {
       newSong[field.name] = field.value;
     });
-
-    console.log(newSong);
 
     // send song object to the Server
     $.ajax({
@@ -21,7 +20,7 @@ $(document).ready(function() {
         if(response == "Created") {
           getSongs();
         } else {
-          alert("Oh no! Your song didn't save correctly.");
+          // TODO: give response as feedback on the DOM
         }
       }
     })
