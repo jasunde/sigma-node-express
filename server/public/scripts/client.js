@@ -41,22 +41,31 @@ $(document).ready(function() {
     });
   }
 
+  // attach songs to the DOM
   function songsToDom(songs) {
     $("#songContainer").empty();
     var date;
 
     for (var i = 0; i < songs.length; i++) {
+      // Add one row per every three songs
+      if(i % 3 == 0) {
+        var $row = $('<div class="row"></div>');
+        $('#songContainer').append($row);
+      }
+
+      // Add song panel
       var $col = $('<div class="song col-sm-4"><div class="panel panel-default"></div></div>');
-      var $el = $col.find('.panel');
-      $el.append('<div class="panel-heading"><h3>' + songs[i].title + '</h3></div>');
-      $el.append('<div class="panel-body"><p>By: ' + songs[i].artist + '</p></div>');
+      $row.append($col);
+      var $panel = $col.find('.panel');
 
-      $el = $col.find('.panel-body');
+      // Add song heading
+      $panel.append('<div class="panel-heading"><h3>' + songs[i].title + '</h3></div>');
+
+      // Add song body
+      $panel.append('<div class="panel-body"><p>By: ' + songs[i].artist + '</p></div>');
+      var $panelBody = $col.find('.panel-body');
       date = new Date(songs[i].dateAdded || '1998');
-      $el.append('<p>Added: ' + date.toLocaleString() + '</p>');
-
-      // $col.append($el);
-      $("#songContainer").append($col);
+      $panelBody.append('<p>Added: ' + date.toLocaleString() + '</p>');
     }
 
   }
