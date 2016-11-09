@@ -1,7 +1,3 @@
-.feedback {
-  opacity: 1;
-  visibility: visible;
-}
 
 .fadeOut {
   animation: fadeOut 2s forwards;
@@ -10,4 +6,18 @@
 @keyframes fadeOut {
   0% { opacity: 1; visibility: visible; }
   100% { opacity: 0; visibility: hidden; }
+}
+
+#feedback {
+  padding: 8px;
+  margin: 4px auto;
+
+}
+
+.feedback {
+  left: 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

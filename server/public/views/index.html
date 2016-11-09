@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Express!</title>
-    <link rel="stylesheet" href="styles/styles.css" />
+<head>
+  <meta charset="utf-8">
+  <title>Express!</title>
+  <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles/styles.css" />
 
-    <script type="text/javascript" src="../vendor/jquery.min.js"></script>
-    <script type="text/javascript" src="../scripts/client.js"></script>
-  </head>
-  <body>
-    <h1>Hello Express!</h1>
-    <div id="feedback" class="feedback"></div>
-    <form id="postSongForm">
-      <label for="title">Song Title:</label>
-      <input type="text" id="title" name="title" />
+  <script type="text/javascript" src="../vendor/jquery.min.js"></script>
+  <script type="text/javascript" src="../scripts/client.js"></script>
+</head>
+<body>
+  <div class="container">
 
-      <label for="artist">Artist:</label>
-      <input type="text" id="artist" name="artist" />
+    <div class="jumbotron text-center">
+      <h1>Song List</h1>
+    </div>
 
-      <!-- <input type="submit" value="Add Song" /> -->
-      <button>Add Song</button>
+    <div class="row feedback">
+      <div class="col-sm-offset-3 col-sm-6 text-center">
+        <p id="feedback"></p>
+      </div>
+    </div>
+
+    <form id="postSongForm" class="form-inline">
+      <div class="form-group">
+        <label for="title" class="control-label">Song Title:</label>
+        <input type="text" id="title" name="title" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="artist" class="control-label">Artist:</label>
+        <input type="text" id="artist" name="artist" class="form-control" />
+      </div>
+
+      <button class="btn btn-default">Add Song</button>
     </form>
+
     <section id="songContainer"></section>
-  </body>
+    
+  </div>
+</body>
 </html>

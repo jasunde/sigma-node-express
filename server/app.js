@@ -29,7 +29,7 @@ app.post('/songs', function(req, res) {
     songs.push(newSong)
 
     // created new resource
-    res.sendStatus(201)
+    res.status(201).send('Song added.');
   } else {
     res.status(400).send(test.message)
   }

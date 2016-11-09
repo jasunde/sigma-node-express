@@ -18,10 +18,11 @@ $(document).ready(function() {
       data: newSong,
       success: function(response) {
         getSongs();
-        giveFeedback('Song added');
+        giveFeedback(response, 'bg-success');
       },
       error: function(response) {
-        giveFeedback(response.responseText);
+        console.log(response);
+        giveFeedback(response.responseText, 'bg-danger');
       }
 
     });
@@ -56,12 +57,12 @@ $(document).ready(function() {
 
   }
 
-  function giveFeedback(message) {
+  function giveFeedback(message, cls) {
     clearTimeout(timer);
-    $feedback.removeClass('fadeOut').text(message);
+    $feedback.attr('class', cls).text(message);
     timer = setTimeout(function () {
       $feedback.addClass('fadeOut');
-    }, 5000);
+    }, 3000);
   }
 
 });
