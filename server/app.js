@@ -22,14 +22,16 @@ var songs = [
 app.post('/songs', function(req, res) {
   // req.body is supplied by bodyParser above
   var newSong = req.body
-
-  if(isValid(newSong, songs)) {
+  var test = isValid(newSong, songs)
+  if(test.valid) {
+    newSong.dateAdded = Date.now()
+    console.log(newSong.dateAdded)
     songs.push(newSong)
 
     // created new resource
     res.sendStatus(201)
   } else {
-    res.status(400).send("That's not a valid entry")
+    res.status(400).send(test.message)
   }
 
 })

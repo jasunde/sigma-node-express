@@ -1,0 +1,13 @@
+.feedback {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fadeOut {
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
