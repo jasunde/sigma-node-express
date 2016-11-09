@@ -1,3 +1,7 @@
+form {
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
 
 .fadeOut {
   animation: fadeOut 2s forwards;
@@ -9,9 +13,9 @@
 }
 
 #feedback {
+  border-radius: 6px;
   padding: 8px;
   margin: 4px auto;
-
 }
 
 .feedback {

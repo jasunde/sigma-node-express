@@ -18,11 +18,11 @@ $(document).ready(function() {
       data: newSong,
       success: function(response) {
         getSongs();
-        giveFeedback(response, 'bg-success');
+        giveFeedback(response, 'bg-success text-success');
       },
       error: function(response) {
         console.log(response);
-        giveFeedback(response.responseText, 'bg-danger');
+        giveFeedback(response.responseText, 'bg-danger text-danger');
       }
 
     });
@@ -46,13 +46,17 @@ $(document).ready(function() {
     var date;
 
     for (var i = 0; i < songs.length; i++) {
-      $("#songContainer").append('<div class="song"></div>');
-      var $el = $("#songContainer").children().last();
-      $el.append('<h3>' + songs[i].title + '</h3>');
-      $el.append('<p>By: ' + songs[i].artist + '</p>');
+      var $col = $('<div class="song col-sm-4"><div class="panel panel-default"></div></div>');
+      var $el = $col.find('.panel');
+      $el.append('<div class="panel-heading"><h3>' + songs[i].title + '</h3></div>');
+      $el.append('<div class="panel-body"><p>By: ' + songs[i].artist + '</p></div>');
 
+      $el = $col.find('.panel-body');
       date = new Date(songs[i].dateAdded || '1998');
-      $el.append('<p>Date Added: ' + date.toLocaleString() + '</p>');
+      $el.append('<p>Added: ' + date.toLocaleString() + '</p>');
+
+      // $col.append($el);
+      $("#songContainer").append($col);
     }
 
   }
