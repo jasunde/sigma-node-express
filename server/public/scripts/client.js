@@ -17,11 +17,11 @@ $(document).ready(function() {
       url: '/songs',
       data: newSong,
       success: function(response) {
-        getSongs();
-        giveFeedback(response, 'bg-success text-success');
+        getSongs(function () {
+          giveFeedback(response, 'bg-success text-success');
+        });
       },
       error: function(response) {
-        console.log(response);
         giveFeedback(response.responseText, 'bg-danger text-danger');
       }
 
@@ -31,12 +31,15 @@ $(document).ready(function() {
 
   getSongs();
 
-  function getSongs() {
+  function getSongs(fn) {
     $.ajax({
       type: 'GET',
       url: '/songs',
       success: function(songData) {
         songsToDom(songData);
+        if(fn) {
+          fn();
+        }
       }
     });
   }

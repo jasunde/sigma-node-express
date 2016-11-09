@@ -25,7 +25,6 @@ app.post('/songs', function(req, res) {
   var test = isValid(newSong, songs)
   if(test.valid) {
     newSong.dateAdded = Date.now()
-    console.log(newSong.dateAdded)
     songs.push(newSong)
 
     // created new resource
